@@ -60,8 +60,8 @@ client.slashCommands = new Collection();
 client.aliases = new Discord.Collection();
 client.categories = require("fs").readdirSync(`./commands`);
 client.config = require("./botconfig/config.json");
-client.emojiyes = `<a:yes_animated:911729650030510081>`; // This defines the YES emoji for the bot!
-client.emojino = `<:no:897849877810274324>`; // This defines the NO emoji for the bot!
+client.emojiyes = `✅`; // This defines the YES emoji for the bot!
+client.emojino = `❌`; // This defines the NO emoji for the bot!
 
 /*        WEB & BOT SERVER         ¦¦        WEB & BOT SERVER        */ 
 
