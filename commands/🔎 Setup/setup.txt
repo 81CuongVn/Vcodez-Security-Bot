@@ -1,0 +1,166 @@
+/**
+ *  🎒 Axontic Beta ● Vcodez Development 🧪
+ * 🎨 @Masterious#2218 ¦ @lostfaye ៛#1268 ¦ @aledlb8#1196 🔍
+ *  🎋 Unauthorized Duplication is Prohibited 🥏
+ */
+
+const { MessageSelectMenu, MessageButton, Discord, MessageEmbed, MessageActionRow, CommandInteraction, MessageComponentInteraction, InteractionCollector, MessageCollector } = require('discord.js');
+const fetch = require("node-fetch");
+
+module.exports = {
+    name: 'setup',
+    aliases: [],
+    run: async (client, message, args) => {
+      const embed1 = new MessageEmbed()
+      .setColor(`#0x2F3136`)
+      .setAuthor(`Setup-Systems | (1/3) [A-C]`, `https://shorturl.at/iEHQ0`, `https://dev.vcodez.net/`)
+      .setDescription(`_**Select what you need in the \`Selection\` down Below!**_`)
+      const embed2 = new MessageEmbed()
+      .setColor(`#0x2F3136`)
+      .setAuthor(`Setup-Systems | (2/3) [C-R]`, `https://shorturl.at/iEHQ0`, `https://dev.vcodez.net/`)
+      .setDescription(`_**Select what you need in the \`Selection\` down Below!**_`)
+      const embed3 = new MessageEmbed()
+      .setColor(`#0x2F3136`)
+      .setAuthor(`Setup-Systems | (3/3) [R-Z]`, `https://shorturl.at/iEHQ0`, `https://dev.vcodez.net/`)
+      .setDescription(`_**Select what you need in the \`Selection\` down Below!**_`)
+
+      const menu1 = new MessageSelectMenu()
+      .setCustomId('setupMenu_1')
+      .setPlaceholder('Click me to setup the (1/3) Systems [A-C]!')
+      .addOptions([
+        { label: 'setup-admin', value: 'adminSetup_1', description: 'Setup Roles/Users for all/specified Admin Cmds', emoji: '🔨' },
+        { label: 'setup-admicmdlog', value: 'admincmdlogSetup_1', description: 'Setup a Logger for Admin Commands to a Channel', emoji: '📑' },
+        { label: 'setup-aichat', value: 'aichatSetup_1', description: 'Setup a fun AI-Chat System to chat with me', emoji: '💬' },
+        { label: 'setup-anticaps', value: 'anticapsSetup_1', description: 'Setup a Anti-CAPS System to prevent CAPS-only msgs', emoji: '🅰' },
+        { label: 'setup-antidiscord', value: 'antidiscordSetup_1', description: 'Setup a Anti-DISCORD System to prevent DC-LINKS', emoji: '<:discord:902225971455860826>' },
+        { label: 'setup-antilink', value: 'antilink_1', description: 'Setup a Anti-LINK System to prevent LINKS', emoji: '🔗' },
+        { label: 'setup-antinuke', value: 'antinukeSetup_1', description: 'Setup a Anti-NUKE System to prevent NUKES', emoji: '🚸' },
+        { label: 'setup-apply', value: 'applySetup_1', description: 'Setup up to 25 different Apply Systems', emoji: '🔎' },
+        { label: 'setup-autodelete', value: 'autodeleteSetup_1', description: 'Setup auto deletion Channels', emoji: '📥' },
+        { label: 'setup-autoembed', value: 'autoembedSetup_1', description: 'Define Channel(s) to replace messages with EMBEDS', emoji: '🧪' },
+        { label: 'setup-automeme', value: 'automemeSetup_1', description: 'Define a Channel to post MEMES every minute', emoji: '🧩' },
+        { label: 'setup-autonsfw', value: 'autonsfwSetup_1', description: 'Define a Channel to post NSFW every minute', emoji: '🔞' },
+        { label: 'setup-blacklist', value: 'blacklistSetup_1', description: 'Manage the Word(s)-Blacklist', emoji: '🔠' },
+      ])
+      const menu2 = new MessageSelectMenu()
+      .setCustomId('setupMenu_2')
+      .setPlaceholder('Click me to setup the (2/3) Systems [C-R]!')
+      .addOptions([
+        { label: 'setup-commands', value: 'commandsSetup_2', description: 'Enable/Disable specific Commands', emoji: '⚙' },
+        { label: 'setup-counter', value: 'counterSetup_2', description: 'Setup a fun Number-Counter Channel', emoji: '#️⃣' },
+        { label: 'setup-customcommand', value: 'customcommandSetup_2', description: 'Setup up to 25 different Custom-Commands', emoji: '⌨' },
+        { label: 'setup-dailyfact', value: 'dailyfactSetup_2', description: 'Setup a Channel to post daily facts', emoji: '📅' },
+        { label: 'setup-embed', value: 'embedSetup_2', description: 'Setup the Look of the Embeded Messages', emoji: '📕' },
+        { label: 'setup-jtc', value: 'jtcSetup_2', description: 'Setup the Join-To-Create Channel(s)', emoji: '🔊' },
+        { label: 'setup-keyword', value: 'keywordSetup_2', description: 'Setup up to 25 different Keyword-Messages', emoji: '📖' },
+        { label: 'setup-language', value: 'languageSetup_2', description: 'Manage the Bot\'s Language', emoji: '🇬🇧' },
+        { label: 'setup-leave', value: 'leaveSetup_2', description: 'Manage the Leave Messages', emoji: '📤' },
+        { label: 'setup-logger', value: 'loggerSetup_2', description: 'Setup the Audit-Log', emoji: '🛠' },
+        { label: 'setup-membercount', value: 'membercountSetup_2', description: 'Setup up to 25 different Member-Counters', emoji: '📈' },
+        { label: 'setup-radio', value: 'radioSetup_2', description: 'Setup the Radio/Waitingroom System', emoji: '📻' },
+        { label: 'setup-rank', value: 'rankSetup_2', description: 'Setup the Ranking System', emoji: '📊' },
+      ])
+      const menu3 = new MessageSelectMenu()
+      .setCustomId('setupMenu_3')
+      .setPlaceholder('Click me to setup the (3/3) Systems [R-Z]!')
+      .addOptions([
+        { label: 'setup-reactionrole', value: 'reactionroleSetup_3', description: 'Setup Infinite Reaction Roles', emoji: '📌' },
+        { label: 'setup-reportlog', value: 'reportlogSetup_3', description: 'Setup the Report System & Channel', emoji: '🗃' },
+        { label: 'setup-roster', value: 'rosterSetup_3', description: 'Setup the Roster System', emoji: '📜' },
+        { label: 'setup-serverstats', value: 'serverstatsSetup_3', description: 'Setup up to 25 different Member-Counters', emoji: '📉' },
+        { label: 'setup-suggestion', value: 'suggestionSetup_3', description: 'Setup the Suggestion System', emoji: '💡' },
+        { label: 'setup-ticket', value: 'ticketSetup_3', description: 'Setup up to 25 different Ticket-Systems', emoji: '🎟' },
+        { label: 'setup-tiktok', value: 'tiktokSetup_3', description: 'Setup up to 3 different TikTok Logger Channels', emoji: '902225971422314496' },
+        { label: 'setup-twitch', value: 'twitchSetup_3', description: 'Setup 5 different Twitch Logger Channels', emoji: '902225970906406913' },
+        { label: 'setup-twitter', value: 'twitterSetup_3', description: 'Setup 2 different Twitter Logger Channels', emoji: '902225971296489482' },
+        { label: 'setup-validcode', value: 'validcodeSetup_3', description: 'Setup the Valid-Code System', emoji: '902225971271319652' },
+        { label: 'setup-warn', value: 'warnSetup_3', description: 'Setup the Warn System Settings', emoji: '🚫' },
+        { label: 'setup-welcome', value: 'welcomeSetup_3', description: 'Setup the Welcome System/Messages', emoji: '📥' },
+        { label: 'setup-youtube', value: 'youtubeSetup_3', description: 'Setup up to 5 different Youtube Logger Channels', emoji: '902225971455856650' },
+      ])
+
+      const row1 = new MessageActionRow().addComponents(menu1)
+      const row2 = new MessageActionRow().addComponents(menu2)
+      const row3 = new MessageActionRow().addComponents(menu3)
+
+
+      /* ⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣ */
+
+      const adminSetup_Embed = new MessageEmbed()
+      .setColor(`#0x2F3136`)
+      .setAuthor(`Admin Setup`, `https://images-ext-1.discordapp.net/external/ookkzB-ZiRLY-wq0V5edA5qbhcWwHuWf1GnzQEaarkI/%3Fsize%3D96/https/cdn.discordapp.com/emojis/892521772002447400.png`, `https://dev.vcodez.net/`) // your short url didnt work, make a new one.
+      .setDescription(`_**Select what you need in the \`Selection\` down Below!**_`)
+      const adminSetup_Row = new MessageActionRow().addComponents(menu1)
+
+      /* ⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣⌢⌣ */
+
+      try {
+        const filter = (interaction) => interaction.isSelectMenu() && interaction.user.id === message.author.id;
+        const collector = message.channel.createMessageComponentCollector({ filter, max: 1, });
+
+        collector.on("collect", async(collected) => {
+          const value = collected.values[0];
+          collected.deferUpdate();
+
+  /*・・・・・・・・・・・・・・〢 🔎 Setup-Systems | (1/3) [A-C]   〢・・・・・・・・・・・・・・*/
+          if(value === 'adminSetup_1') {
+            collected.message.edit({ embeds: [menu1] })
+            collected.message.channel.send({ embeds: [adminSetup_Embed], components: [adminSetup_Row] })
+
+          } 
+          // else if(value === 'admincmdlogSetup_1') {
+          //   collected.message.channel.send({ embeds: [admincmdlogSetup_Embed], components: [admincmdlogSetup_Row] })
+
+          // } else if(value === 'aichatSetup_1') {
+          //   collected.message.channel.send({ embeds: [aichatSetup_Embed], components: [aichatSetup_Row] })
+
+          // } else if(value === 'anticapsSetup_1') {
+          //   collected.message.channel.send({ embeds: [anticapsSetup_Embed], components: [anticapsSetup_Row] })
+
+          // } else if(value === 'antidiscordSetup_1') {
+          //   collected.message.channel.send({ embeds: [antidiscordSetup_Embed], components: [antidiscordSetup_Row] })
+
+          // } else if(value === 'antilink_1') {
+          //   collected.message.channel.send({ embeds: [antilink_Embed], components: [antilink_Row] })
+
+          // } else if(value === 'antinukeSetup_1') {
+          //   collected.message.channel.send({ embeds: [antinukeSetup_Embed], components: [antinukeSetup_Row] })
+
+          // } else if(value === 'applySetup_1') {
+          //   collected.message.channel.send({ embeds: [applySetup_Embed], components: [applySetup_Row] })
+
+          // } else if(value === 'autodeleteSetup_1') {
+          //   collected.message.channel.send({ embeds: [autodeleteSetup_Embed], components: [autodeleteSetup_Row] })
+
+          // } else if(value === 'autoembedSetup_1') {
+          //   collected.message.channel.send({ embeds: [autoembedSetup_Embed], components: [autoembedSetup_Row] })
+
+          // } else if(value === 'automemeSetup_1') {
+          //   collected.message.channel.send({ embeds: [automemeSetup_Embed], components: [automemeSetup_Row] })
+
+          // } else if(value === 'autonsfwSetup_1') {
+          //   collected.message.channel.send({ embeds: [autonsfwSetup_Embed], components: [autonsfwSetup_Row] })
+
+          // } else if(value === 'blacklistSetup_1') {
+          //   collected.message.channel.send({ embeds: [blacklistSetup_Embed], components: [blacklistSetup_Row] })
+
+          // }
+
+
+  /*・・・・・・・・・・・・・・〢 🔎 Setup-Systems | (2/3) [C-R]   〢・・・・・・・・・・・・・・*/
+  /*・・・・・・・・・・・・・・〢 🔎 Setup-Systems | (3/3) [R-Z]   〢・・・・・・・・・・・・・・*/
+        })
+
+        message.channel.send({ embeds: [embed1], components: [row1] })
+        message.channel.send({ embeds: [embed2], components: [row2] })
+        message.channel.send({ embeds: [embed3], components: [row3] })
+      } catch(e) {
+        const errorEmb = new MessageEmbed()
+        .setColor("RANDOM") 
+        .setFooter(message.guild.name, message.guild.iconURL())
+        .setTitle(`❌ Uh oh! An error seems to have ocurred!`)
+        .setDescription(`\`\`\`${String(JSON.stringify(e)).substr(0, 2000)}\`\`\``)
+        return message.channel.send({ embeds: [errorEmb] })
+      }
+    },
+};

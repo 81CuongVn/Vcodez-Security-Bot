@@ -1,0 +1,47 @@
+{
+   "prefix": "vs!",
+   "ownerIDS": [
+      "693553429380857978",
+      "718200923490615316",
+      "660149380329766924"
+   ],
+   "debug-logs": true,
+   "anti-crash-logs": true,
+   "ratelimit-logs": true,
+   "debug-discordjs-logs": false,
+   "show-serverjoins": true,
+   "show_loaded_commands": false,
+   "show_loaded_events": false,
+   "deleteMessagesBeforeTheLastSongPlayedMessages": true,
+   "COMMENT": "Only enable hostingweb if you are using replit!",
+   "hostingweb": true,
+   "status": {
+      "text": "{prefix}help • {guildcount} GUILDS",
+      "type": "COMPETING",
+      "url": "https://twitch.tv/#"
+   },
+   "clientsettings": {
+      "nodes": [
+         {
+            "host": "lava.link",
+            "port": 80,
+            "password": "Raccoon"
+         }
+      ]
+   },
+   "spotify": {
+      "clientSecret": "a38967955c91488a982fa41be8e22ad7",
+      "clientID": "c2eff19570944151966ad9202173d0a9"
+   },
+   "settings": {
+      "COMMENT": "time_delay 0 === insta leave",
+      "leaveOnEmpty_Channel": {
+         "enabled": true,
+         "time_delay": 2
+      },
+      "LeaveOnEmpty_Queue": {
+         "enabled": true,
+         "time_delay": 2
+      }
+   }
+}
