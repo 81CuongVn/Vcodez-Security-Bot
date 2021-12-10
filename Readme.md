@@ -1,7 +1,7 @@
 ---------------
->  __All In One Bot__
+>  __Security Bot__
 --------
-> > This is one of the __BEST__ multipurpose Discord Bots youll ever see!
+> > This is one of the __BEST__ EXAMPLE Security Discord Bots youll ever see!
 ----------------------
 > With __OVER__ 100 Features
 
@@ -23,8 +23,7 @@ ___________________
 
 # How to Adjust?
 **To Change the YES & NO emojis: `Index.js there is a GLOBAL VARIABLES TAG! Somewhere there, is client.emojiyes & emojino, change it!`**<br><br>
-**To change the Ticket System**: **`handlers/erela_events/ticketsystem.js`**<br><br>
-**To change the Music System**: **`handlers/erela_events/musicsystem.js`**
+**To change the Dashboard, go to `Dashboard/views/file-name.ejs`!**
 
 
 ___________________
@@ -38,6 +37,6 @@ ___________________
 
 -----> [discord](https://discord.gg/dmb2ScQRpw) <-----
 
------> [Invite Public version](https://discord.com/oauth2/authorize?client_id=898325166029930506&permissions=8&scope=bot) <-----
+-----> [Invite Public version](https://discord.com/api/oauth2/authorize?client_id=918266258074529862&permissions=8&scope=bot) <-----
 
 -----> [Our Bots](https://dev.vcodez.net#ourbots) <-----
