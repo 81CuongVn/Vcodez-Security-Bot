@@ -1,7 +1,7 @@
 {
     "website" : {
       "support": "https://discord.vcodez.net",
-      "domain": "https://security.vcodez.net"
+      "domain": "https://yourdomain.com"
     },
     "config": {
         "http": {
@@ -16,8 +16,8 @@
             "enabled": false,
             "port": 443
         },
-        "callback": "https://security.vcodez.net/callback",
-        "clientID": "918266258074529862",
-        "secret": "6SVBiuQEDqQCmrFBOWocyH97yroHrN87"
+        "callback": "https://yourdomain.com/callback",
+        "clientID": "BOT CLIENT ID",
+        "secret": "BOT CLIENT SECRET"
     }
   }
