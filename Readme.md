@@ -3,7 +3,7 @@
 --------
 > > This is one of the __BEST__ EXAMPLE Security Discord Bots youll ever see!
 ----------------------
-> With __OVER__ 100 Features
+> With __OVER__ 20 Features
 
 ---------------
 
